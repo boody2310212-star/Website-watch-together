@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WatchTogether</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <header class="topbar">
+        <div class="logo">
+            <span>▶</span>
+            WatchTogether
+        </div>
+
+        <div class="room">
+            الغرفة:
+            <strong id="roomId">main</strong>
+        </div>
+    </header>
+
+    <main class="main">
+
+        <section class="video-section">
+
+            <div
+                id="dropZone"
+                class="drop-zone"
+            >
+                <div class="drop-icon">🎬</div>
+
+                <h2>اسحب رابط YouTube هنا</h2>
+
+                <p>
+                    أو الصق رابط الفيديو بالأسفل
+                </p>
+
+                <div class="youtube-input">
+
+                    <input
+                        id="youtubeUrl"
+                        type="text"
+                        placeholder="https://www.youtube.com/watch?v=..."
+                    >
+
+                    <button id="loadYoutube">
+                        تشغيل
+                    </button>
+
+                </div>
+
+                <small>
+                    يدعم youtube.com و youtu.be
+                </small>
+            </div>
+
+            <div class="video-container">
+
+                <div id="player"></div>
+
+                <button
+                    id="fullscreenBtn"
+                    class="fullscreen"
+                >
+                    ⛶
+                </button>
+
+            </div>
+
+            <div class="status">
+                <span id="syncStatus">● متصل</span>
+                <span id="videoStatus">لم يتم تحميل فيديو</span>
+            </div>
+
+        </section>
+
+        <aside class="chat">
+
+            <div class="chat-header">
+                <h3>💬 المحادثة</h3>
+                <span id="onlineUsers">● متصل</span>
+            </div>
+
+            <div id="messages" class="messages"></div>
+
+            <form id="chatForm" class="chat-form">
+
+                <input
+                    id="username"
+                    type="text"
+                    placeholder="اسمك"
+                    value="Guest"
+                >
+
+                <div class="message-row">
+
+                    <input
+                        id="message"
+                        type="text"
+                        placeholder="اكتب رسالة..."
+                        autocomplete="off"
+                    >
+
+                    <button type="submit">
+                        ➤
+                    </button>
+
+                </div>
+
+            </form>
+
+        </aside>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
